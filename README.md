@@ -1,23 +1,36 @@
-Face Recognition System
+# Face Recognition System using CNN (LeNet)
 
-Implemented a face recognition system using a CNN based on the LeNet architecture.
+## Overview
+A face recognition pipeline built using OpenCV for face detection and a Convolutional Neural Network (LeNet architecture) for multi-class classification.
 
-Unpickled and loaded grayscale face images and corresponding labels from serialized files.
+## Pipeline
+1. Face Detection using Haar Cascade
+2. Preprocessing (grayscale, histogram equalization, normalization)
+3. Label encoding + one-hot encoding
+4. CNN model training
+5. Evaluation using accuracy, confusion matrix, classification report
 
-Applied preprocessing including histogram equalization, normalization, and reshaping of images.
+## Model Architecture
+Conv2D → ReLU → MaxPooling  
+Conv2D → ReLU → MaxPooling  
+Flatten → Dense → Softmax  
 
-Encoded labels using LabelEncoder and converted them to one-hot format.
+## Results
+- Dataset Size: 399 images
+- Number of Classes: 4
+- Validation Accuracy: 99%
+- Macro F1-Score: 0.99
+- Optimizer: Adam
+- Loss Function: Categorical Cross-Entropy
 
-Built a CNN using Keras with convolutional, pooling, and dense layers ending in a softmax output.
+## Tech Stack
+Python, TensorFlow/Keras, OpenCV, NumPy, Scikit-learn, Matplotlib
 
-Trained the model using categorical cross-entropy loss and the Adam optimizer.
+## How to Run
+pip install -r requirements.txt
+python src/train.py
 
-Evaluated model performance using accuracy, loss plots, confusion matrix, and classification report.
-
-Visualized training/validation metrics to monitor performance and generalization.
-
-Saved the trained model as final_model.h5 for future inference or deployment.
-
-Tech Stack
-Python, NumPy, OpenCV, Matplotlib, Seaborn, TensorFlow, Keras, Scikit-learn, Pickle
-
+## Future Improvements
+- Replace Haar Cascade with MTCNN
+- Use transfer learning (ResNet/VGGFace)
+- Deploy using Flask
